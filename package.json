@@ -24,6 +24,7 @@
     "@tailwindcss/typography": "^0.5.9",
     "@types/react-dom": "^18.2.0",
     "@types/webpack-env": "^1.18.5",
+    "aws-sdk": "^2.1692.0",
     "class-variance-authority": "^0.6.0",
     "clsx": "^1.2.1",
     "dotenv": "^16.5.0",
