@@ -5,10 +5,10 @@ const path = require('path');
 // CONFIG
 const S3_BUCKET_NAME = 'msi-resources-pages';
 const S3_BUCKET_URL = 'https://d1dc40k4xbphr.cloudfront.net';
-const OUTPUT_FILE = 'pastpapers_urls.json';
+const OUTPUT_FILE = 'guidelinesData.ts';
 
 // Set AWS Region
-AWS.config.update({ region: 'eu-west-1' }); // Make sure to set the correct region
+AWS.config.update({ region: 'eu-west-1' });
 
 // AWS S3 Client
 const s3 = new AWS.S3();
@@ -18,35 +18,70 @@ const mapSubjectName = (folderName) => {
     const mapping = {
         "maths": "Maths",
         "science": "Science"
-        // Add other mappings if needed
+        // Add other subjects as needed
     };
     return mapping[folderName.toLowerCase()] || folderName.charAt(0).toUpperCase() + folderName.slice(1);
 };
 
-const detectExamType = (filename) => {
-    const lowerFilename = filename.toLowerCase();
-    
-    // Simple detection based on keywords in filename
-    if (lowerFilename.includes('guidelines')) return "Final";
-    if (lowerFilename.includes('midyear')) return "Midyear";
-    
-    return "Unknown";
+// Extract year from filename
+const extractYear = (filename) => {
+    // Try to find a 4-digit year in the filename
+    const yearMatch = filename.match(/\b(20\d{2})\b/);
+    return yearMatch ? yearMatch[1] : null;
 };
 
-const generateS3Url = (subject, grade, year, examType) => {
-    const filename = `${subject.toLowerCase()}_grade${grade}_${year}_${examType.toLowerCase()}.zip`;
-    return `${S3_BUCKET_URL}/MSI%20PastPapers/${subject.toLowerCase()}/grade${grade}/${year}/${filename}`;
+// Extract grade from path or filename
+const extractGrade = (path, filename) => {
+    // First try to get grade from path
+    const gradeMatch = path.match(/grade(\d+)/i);
+    if (gradeMatch && gradeMatch[1]) {
+        return gradeMatch[1];
+    }
+    
+    // If not found in path, try filename
+    const filenameGradeMatch = filename.match(/grade\s*(\d+)/i);
+    if (filenameGradeMatch && filenameGradeMatch[1]) {
+        return filenameGradeMatch[1];
+    }
+    
+    return null;
 };
 
-// Main Function to Scan S3 Bucket
-const scanS3Bucket = async () => {
+// Generate a clean title from filename
+const generateTitle = (subject, grade, filename) => {
+    // Extract year if present
+    const year = extractYear(filename);
+    
+    // Clean up filename by removing common patterns
+    let cleanTitle = filename
+        .replace(/\.pdf$|\.docx$|\.zip$/i, '')
+        .replace(/(additional|notes|to|the|marking|guideline|guidelines|common|examination|grade|paper|p\d+)/gi, ' ')
+        .replace(/\d{4}/g, '')
+        .trim();
+    
+    // If the clean title is too short or empty, use a default format
+    if (cleanTitle.length < 5) {
+        return `${subject} Grade ${grade} Guidelines ${year ? year : ''}`.trim();
+    }
+    
+    return `${subject} Grade ${grade} - ${cleanTitle} ${year ? '(' + year + ')' : ''}`.trim();
+};
+
+// Generate direct S3 URL for a file
+const generateS3Url = (objectKey) => {
+    return `${S3_BUCKET_URL}/${encodeURIComponent(objectKey)}`;
+};
+
+// Main Function to Scan S3 Bucket for Guidelines
+const scanS3BucketForGuidelines = async () => {
     try {
         const params = {
             Bucket: S3_BUCKET_NAME,
-            Prefix: "MSI PastPapers/"  // Folder prefix in S3
+            Prefix: "MSI PastPapers/"
         };
 
-        const fileData = [];
+        const guidelinesData = [];
+        const processedFiles = new Set(); // To track processed files
 
         let data;
         do {
@@ -56,107 +91,93 @@ const scanS3Bucket = async () => {
             // Process each file in the S3 bucket
             for (const obj of data.Contents) {
                 const fileKey = obj.Key;
+                const filename = path.basename(fileKey);
                 
-                // Skip folders or non-relevant files
-                if (!fileKey.match(/\.(pdf|docx|zip)$/i)) continue;
+                // Skip if not a guideline file or if it's a folder
+                if (!fileKey.includes('guidelines') || !filename.match(/\.(pdf|docx|zip)$/i)) {
+                    continue;
+                }
+                
+                // Skip if we've already processed this file
+                if (processedFiles.has(fileKey)) {
+                    continue;
+                }
+                processedFiles.add(fileKey);
                 
                 // Extract path components
                 const pathParts = fileKey.split('/');
                 
-                // Check if we have enough path components to parse
-                if (pathParts.length < 4) continue;
-                
-                // Parse the path to extract meaningful data
-                let subject = '';
-                let grade = '';
-                let year = '';
-                let examType = '';
-                
-                // Expected structure: "MSI PastPapers/subject/grade/year/..."
-                // But we'll handle potentially different structures
-                // First try to identify subject, grade, and year from the path
-                
-                // Looking at the example output, we need to handle paths like:
-                // "MSI PastPapers/maths/grade10/2016/..."
-                // or "MSI PastPapers/grade10/grade2016/..."
-                
-                // Try to find subject (maths, science, etc.)
-                for (let i = 1; i < pathParts.length; i++) {
-                    const part = pathParts[i].toLowerCase();
-                    if (part === "maths" || part === "science") {
+                // Get subject from path
+                let subject = null;
+                for (const part of pathParts) {
+                    if (part.toLowerCase() === "maths" || part.toLowerCase() === "science") {
                         subject = mapSubjectName(part);
                         break;
                     }
                 }
                 
-                // Try to find grade number
-                for (let i = 1; i < pathParts.length; i++) {
-                    const gradeMatch = pathParts[i].match(/grade(\d+)/i);
-                    if (gradeMatch && gradeMatch[1]) {
-                        grade = gradeMatch[1];
-                        break;
-                    }
-                }
+                // Extract grade from path or filename
+                const grade = extractGrade(fileKey, filename);
                 
-                // Try to find year (4-digit number or in a part containing year)
-                for (let i = 1; i < pathParts.length; i++) {
-                    const yearMatch = pathParts[i].match(/(\d{4})/);
-                    if (yearMatch && yearMatch[1]) {
-                        year = yearMatch[1];
-                        break;
-                    }
-                }
+                // Extract year from filename
+                const year = extractYear(filename);
                 
-                // Get the filename to detect exam type
-                const filename = path.basename(fileKey);
-                examType = detectExamType(filename);
-                
-                // Skip entries with invalid data
-                if (!subject || !grade || !year || examType === "Unknown") {
+                // Skip if we can't determine the subject or grade
+                if (!subject || !grade) {
+                    console.log(`Skipping file with missing data: ${fileKey}`);
                     continue;
                 }
+
+                // Generate title based on filename
+                const title = generateTitle(subject, grade, filename);
                 
-                // Generate correct URL
-                const url = generateS3Url(subject, grade, year, examType);
+                // Generate direct S3 URL
+                const url = generateS3Url(fileKey);
                 
-                // Create entry with proper format
+                // Create data entry
                 const dataEntry = {
-                    title: `${subject} Grade ${grade} ${examType} ${year}`,
+                    title: title,
                     url: url,
                     grade: `Grade ${grade}`,
                     subject: subject,
-                    year: year,
-                    examType: examType
+                    examType: "Guidelines",
+                    year: year || ""
                 };
                 
-                fileData.push(dataEntry);
+                guidelinesData.push(dataEntry);
             }
 
-            // If there are more files, continue fetching them
+            // Continue if there are more files
             params.ContinuationToken = data.NextContinuationToken;
-        } while (data.IsTruncated);  // Continue if there are more files
+        } while (data.IsTruncated);
 
-        // Sort the data by subject, grade, year, and examType
-        fileData.sort((a, b) => {
+        // Sort data by subject, grade, then year (desc)
+        guidelinesData.sort((a, b) => {
             if (a.subject !== b.subject) return a.subject.localeCompare(b.subject);
-            if (a.grade !== b.grade) {
-                // Extract numbers for numeric comparison
-                const aNum = parseInt(a.grade.replace(/\D/g, ''), 10);
-                const bNum = parseInt(b.grade.replace(/\D/g, ''), 10);
-                return aNum - bNum;
-            }
-            if (a.year !== b.year) return b.year.localeCompare(a.year); // Newest first
-            return a.examType.localeCompare(b.examType);
+            
+            // Extract grade numbers for numeric comparison
+            const aGradeNum = parseInt(a.grade.replace(/\D/g, ''), 10);
+            const bGradeNum = parseInt(b.grade.replace(/\D/g, ''), 10);
+            
+            if (aGradeNum !== bGradeNum) return aGradeNum - bGradeNum;
+            
+            // Sort by year (descending)
+            return b.year.localeCompare(a.year);
         });
 
-        // Save the data to a JSON file
-        fs.writeFileSync(OUTPUT_FILE, JSON.stringify(fileData, null, 4));
+        // Generate the JavaScript file with the data
+        const jsContent = `// Export the guidelines data
+export const guidelinesData = ${JSON.stringify(guidelinesData, null, 2)};
+`;
 
-        console.log(`✅ Done! Metadata saved at ${OUTPUT_FILE}`);
+        // Write to file
+        fs.writeFileSync(OUTPUT_FILE, jsContent);
+        console.log(`✅ Successfully processed ${guidelinesData.length} guideline files`);
+        console.log(`✅ Guidelines data saved to ${OUTPUT_FILE}`);
     } catch (err) {
-        console.error("❌ Error: ", err);
+        console.error("❌ Error scanning S3 bucket:", err);
     }
 };
 
 // Run the function
-scanS3Bucket();
+scanS3BucketForGuidelines();

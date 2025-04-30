@@ -4,28 +4,29 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import { examPapers } from '@/data/examPapers'; // Your existing import
-import {
-  Download,
-  ChevronLeft,
-  Search,
-  FileText,
-  Book,
-  Filter,
-  X
+import { 
+  Download, 
+  ChevronLeft, 
+  Search, 
+  FileText, 
+  Book, 
+  Filter, 
+  X 
 } from 'lucide-react';
 
-// Fixed values for this page
-const GRADE = '10';
-const SUBJECT = 'science'; // Changed to lowercase to match the data
-const YEARS = ['2019', '2018', '2017', '2016']; // Updated to include 2017
-const EXAM_TYPES = ['guideline']; // All lowercase to match data
+// This would normally come from your data file or API
+// In production, you'd replace this with actual data or API call
+import { guidelinesData } from '@/data/guidelinesData';
+
+// Constants for filter options
+const GRADES = ['7', '8', '9', '10', '11', '12'];
+const SUBJECTS = ['Maths', 'Science'];
 
 export default function GuidelinesPage() {
   const [searchTerm, setSearchTerm] = useState('');
-  const [selectedYear, setSelectedYear] = useState('');
-  const [selectedExamType, setSelectedExamType] = useState('');
-  const [filteredPapers, setFilteredPapers] = useState([]);
+  const [selectedGrade, setSelectedGrade] = useState('');
+  const [selectedSubject, setSelectedSubject] = useState('');
+  const [filteredGuidelines, setFilteredGuidelines] = useState([]);
   const [showFilters, setShowFilters] = useState(false);
   const [isClient, setIsClient] = useState(false);
 
@@ -34,29 +35,27 @@ export default function GuidelinesPage() {
     setIsClient(true);
   }, []);
 
-  // Filter the past papers when search/filter changes
+  // Filter the guidelines when search/filter changes
   useEffect(() => {
-    const filtered = examPapers.filter((paper) => {
-      return (
-        paper.title.toLowerCase().includes(searchTerm.toLowerCase()) &&
-        paper.grade === `Grade ${GRADE}` &&
-        paper.subject.toLowerCase() === SUBJECT.toLowerCase() && 
-        (selectedYear ? paper.year === selectedYear : true) &&
-        (selectedExamType ? paper.examType.toLowerCase() === selectedExamType.toLowerCase() : true)
-      );
+    const filtered = guidelinesData.filter((guideline) => {
+      const matchesSearch = guideline.title.toLowerCase().includes(searchTerm.toLowerCase());
+      const matchesGrade = selectedGrade ? guideline.grade === `Grade ${selectedGrade}` : true;
+      const matchesSubject = selectedSubject ? guideline.subject === selectedSubject : true;
+      
+      return matchesSearch && matchesGrade && matchesSubject;
     });
 
-    setFilteredPapers(filtered);
-  }, [searchTerm, selectedYear, selectedExamType]);
+    setFilteredGuidelines(filtered);
+  }, [searchTerm, selectedGrade, selectedSubject]);
 
   // Reset all filters
   const resetFilters = () => {
-    setSelectedYear('');
-    setSelectedExamType('');
+    setSelectedGrade('');
+    setSelectedSubject('');
   };
 
   // Check if any filter is active
-  const hasActiveFilters = selectedYear || selectedExamType;
+  const hasActiveFilters = selectedGrade || selectedSubject;
 
   // If not client-side yet, show minimal loading UI to prevent hydration errors
   if (!isClient) {
@@ -75,17 +74,20 @@ export default function GuidelinesPage() {
           {/* Navigation */}
           <div className="mb-8">
             <Link
-              href="/resources/past-papers"
+              href="/resources"
               className="inline-flex items-center text-gray-600 hover:text-red-600"
             >
               <ChevronLeft className="w-4 h-4 mr-2" />
-              Back to Past Papers
+              Back to Resources
             </Link>
           </div>
 
           {/* Header */}
           <div className="mb-8">
-            <h1 className="text-3xl font-bold text-navy-blue">Grade {GRADE} Physical Science Past Papers</h1>
+            <h1 className="text-3xl font-bold text-navy-blue">Examination Guidelines</h1>
+            <p className="text-gray-600 mt-2">
+              Download guidelines for all grades and subjects
+            </p>
           </div>
 
           {/* Search & Filter Controls */}
@@ -94,7 +96,7 @@ export default function GuidelinesPage() {
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
               <input
                 type="text"
-                placeholder="Search past papers..."
+                placeholder="Search guidelines..."
                 className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500"
                 onChange={(e) => setSearchTerm(e.target.value)}
               />
@@ -127,32 +129,32 @@ export default function GuidelinesPage() {
                 )}
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {/* Year Filter */}
+                {/* Grade Filter */}
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">Year</label>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">Grade</label>
                   <select
                     className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500"
-                    value={selectedYear}
-                    onChange={(e) => setSelectedYear(e.target.value)}
+                    value={selectedGrade}
+                    onChange={(e) => setSelectedGrade(e.target.value)}
                   >
-                    <option value="">All Years</option>
-                    {YEARS.map((year) => (
-                      <option key={year} value={year}>{year}</option>
+                    <option value="">All Grades</option>
+                    {GRADES.map((grade) => (
+                      <option key={grade} value={grade}>Grade {grade}</option>
                     ))}
                   </select>
                 </div>
 
-                {/* Exam Type Filter */}
+                {/* Subject Filter */}
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">Exam Type</label>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">Subject</label>
                   <select
                     className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500"
-                    value={selectedExamType}
-                    onChange={(e) => setSelectedExamType(e.target.value)}
+                    value={selectedSubject}
+                    onChange={(e) => setSelectedSubject(e.target.value)}
                   >
-                    <option value="">All Types</option>
-                    {EXAM_TYPES.map((type) => (
-                      <option key={type} value={type}>{type.charAt(0).toUpperCase() + type.slice(1)}</option>
+                    <option value="">All Subjects</option>
+                    {SUBJECTS.map((subject) => (
+                      <option key={subject} value={subject}>{subject}</option>
                     ))}
                   </select>
                 </div>
@@ -163,18 +165,18 @@ export default function GuidelinesPage() {
           {/* Active Filter Chips */}
           {hasActiveFilters && (
             <div className="flex flex-wrap gap-2 mb-4">
-              {selectedYear && (
+              {selectedGrade && (
                 <div className="flex items-center bg-red-50 text-red-600 px-3 py-1 rounded-full text-sm">
-                  Year: {selectedYear}
-                  <button onClick={() => setSelectedYear('')} className="ml-2">
+                  Grade: {selectedGrade}
+                  <button onClick={() => setSelectedGrade('')} className="ml-2">
                     <X className="w-3 h-3" />
                   </button>
                 </div>
               )}
-              {selectedExamType && (
+              {selectedSubject && (
                 <div className="flex items-center bg-red-50 text-red-600 px-3 py-1 rounded-full text-sm">
-                  Type: {selectedExamType.charAt(0).toUpperCase() + selectedExamType.slice(1)}
-                  <button onClick={() => setSelectedExamType('')} className="ml-2">
+                  Subject: {selectedSubject}
+                  <button onClick={() => setSelectedSubject('')} className="ml-2">
                     <X className="w-3 h-3" />
                   </button>
                 </div>
@@ -186,33 +188,34 @@ export default function GuidelinesPage() {
           <div className="bg-white rounded-lg shadow-md p-6">
             <div className="flex items-center justify-between mb-6">
               <h2 className="text-xl font-semibold text-gray-800">
-                Available Papers
+                Available Guidelines
               </h2>
-              {filteredPapers.length > 0 && (
-                <p className="text-sm text-gray-500">{filteredPapers.length} {filteredPapers.length === 1 ? 'result' : 'results'}</p>
+              {filteredGuidelines.length > 0 && (
+                <p className="text-sm text-gray-500">{filteredGuidelines.length} {filteredGuidelines.length === 1 ? 'result' : 'results'}</p>
               )}
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-              {filteredPapers.length > 0 ? (
-                filteredPapers.map((paper, index) => (
+              {filteredGuidelines.length > 0 ? (
+                filteredGuidelines.map((guideline, index) => (
                   <div
                     key={index}
-                    className="p-4 border border-gray-200 rounded-lg hover:border-red-500 transition-colors hover:scale-102"
+                    className="p-4 border border-gray-200 rounded-lg hover:border-red-500 transition-colors hover:shadow-sm"
                   >
                     <div className="flex items-start justify-between">
                       <div className="flex items-center space-x-3">
                         <FileText className="w-6 h-6 text-red-600" />
                         <div>
-                          <p className="font-semibold text-gray-800">{paper.title}</p>
-                          <p className="text-sm text-gray-500 capitalize">
-                            {paper.year} • {paper.examType}
+                          <p className="font-semibold text-gray-800">{guideline.title}</p>
+                          <p className="text-sm text-gray-500">
+                            {guideline.subject} • {guideline.grade}
                           </p>
                         </div>
                       </div>
                       <a
-                        href={paper.url}
+                        href={guideline.url}
                         download
                         className="p-2 text-red-600 hover:text-red-800 transition-colors"
+                        aria-label={`Download ${guideline.title}`}
                       >
                         <Download className="w-5 h-5" />
                       </a>
@@ -222,7 +225,7 @@ export default function GuidelinesPage() {
               ) : (
                 <div className="col-span-3 text-center py-8 text-gray-500">
                   <Book className="w-12 h-12 mx-auto mb-4 text-gray-400" />
-                  <p>No past papers found for Grade {GRADE} Physical Science. Try adjusting your filters.</p>
+                  <p>No guidelines found matching your criteria. Try adjusting your filters.</p>
                 </div>
               )}
             </div>
