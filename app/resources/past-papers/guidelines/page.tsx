@@ -16,12 +16,12 @@ import {
 } from 'lucide-react';
 
 // Fixed values for this page
-const GRADE = '12';
-const SUBJECT = 'maths'; // Changed to lowercase to match the data
-const YEARS = ['2021', '2020', '2019', '2018', '2017', '2016', '2015', '2014', '2013', '2012', '2011', '2010', '2009', '2008']; 
-const EXAM_TYPES = ['final', 'midyear']; // All lowercase to match data
+const GRADE = '10';
+const SUBJECT = 'science'; // Changed to lowercase to match the data
+const YEARS = ['2019', '2018', '2017', '2016']; // Updated to include 2017
+const EXAM_TYPES = ['guideline']; // All lowercase to match data
 
-export default function Grade12MathematicsPastPapersPage() {
+export default function GuidelinesPage() {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedYear, setSelectedYear] = useState('');
   const [selectedExamType, setSelectedExamType] = useState('');
@@ -85,7 +85,7 @@ export default function Grade12MathematicsPastPapersPage() {
 
           {/* Header */}
           <div className="mb-8">
-            <h1 className="text-3xl font-bold text-navy-blue">Grade {GRADE} Mathematics Past Papers</h1>
+            <h1 className="text-3xl font-bold text-navy-blue">Grade {GRADE} Physical Science Past Papers</h1>
           </div>
 
           {/* Search & Filter Controls */}
@@ -222,7 +222,7 @@ export default function Grade12MathematicsPastPapersPage() {
               ) : (
                 <div className="col-span-3 text-center py-8 text-gray-500">
                   <Book className="w-12 h-12 mx-auto mb-4 text-gray-400" />
-                  <p>No past papers found for Grade {GRADE} Mathematics. Try adjusting your filters.</p>
+                  <p>No past papers found for Grade {GRADE} Physical Science. Try adjusting your filters.</p>
                 </div>
               )}
             </div>

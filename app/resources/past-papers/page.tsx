@@ -221,28 +221,15 @@ function AdditionalResources() {
       <h2 className="text-2xl font-bold text-navy-blue mb-6">Additional Resources</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div>
-          <h3 className="text-lg font-semibold text-gray-800 mb-3">Practice Questions</h3>
+          <h3 className="text-lg font-semibold text-gray-800 mb-3">Quidelines</h3>
           <p className="text-gray-600 mb-4">
             Access additional practice questions and mock examinations to further enhance your preparation.
           </p>
           <Link 
-            href="/resources/past-papers/practice-questions" 
+            href="/resources/past-papers/guidelines" 
             className="inline-flex items-center text-red-600 hover:text-red-800 transition-colors font-medium"
           >
-            View Practice Questions
-            <ChevronRight className="w-4 h-4 ml-1" />
-          </Link>
-        </div>
-        <div>
-          <h3 className="text-lg font-semibold text-gray-800 mb-3">Study Tips</h3>
-          <p className="text-gray-600 mb-4">
-            Get expert tips and strategies for effectively using past papers in your exam preparation.
-          </p>
-          <Link 
-            href="/resources/past-papers/study-tips" 
-            className="inline-flex items-center text-red-600 hover:text-red-800 transition-colors font-medium"
-          >
-            Read Study Tips
+            View Guidelines
             <ChevronRight className="w-4 h-4 ml-1" />
           </Link>
         </div>
