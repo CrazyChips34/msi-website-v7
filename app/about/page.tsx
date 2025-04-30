@@ -18,20 +18,20 @@ const teamMembers = [
    {
     name: 'Dr Fikiswa Ngonyama',
     role: 'Chairperson',
-    image: 'https://msi-resources-pages.s3.amazonaws.com/images/board_members/msi_board_Dr_Fikiswa_Ngonyama.jpg',
+    image: 'https://d1dc40k4xbphr.cloudfront.net/images/board_members/msi_board_Dr_Fikiswa_Ngonyama.jpg',
     bio: 'Occupational Medical Practitioner and public health expert with over a decade of experience in healthcare management and policy.',
   },
   {
     name: 'Mr Zenith Tsengwa',
     role: 'Board Member',
-    image: 'https://msi-resources-pages.s3.amazonaws.com/images/board_members/msi_board_Mr_Zenith_Tsengwa.webp',
+    image: 'https://d1dc40k4xbphr.cloudfront.net/images/board_members/msi_board_Mr_Zenith_Tsengwa.webp',
     bio: 'Dynamic business leader with expertise in project management, strategy, and investment, and a passion for education and community upliftment.',
   },
  
   {
     name: 'Mr Lindele Mondliwa',
     role: 'Board Member',
-    image: 'https://msi-resources-pages.s3.amazonaws.com/images/board_members/msi_board_Mr_Lindele_Mondliwa.jpg',
+    image: 'https://d1dc40k4xbphr.cloudfront.net/images/board_members/msi_board_Mr_Lindele_Mondliwa.jpg',
     bio: 'Managing Director of Limbe Energy and entrepreneur with investments spanning multiple industries.',
   },
 ]
@@ -40,32 +40,32 @@ const values = [
   {
     title: 'Equity and Inclusion',
     description: 'We ensure every student has equal access to education, regardless of their background.',
-    icon: <Image src="https://msi-resources-pages.s3.amazonaws.com/images/icons/msi_student_icon.svg" alt="Equity and Inclusion" width={100} height={100} />, 
+    icon: <Image src="https://d1dc40k4xbphr.cloudfront.net/images/icons/msi_student_icon.svg" alt="Equity and Inclusion" width={100} height={100} />, 
   },
   {
     title: 'Excellence in Education',
     description: 'We strive for the highest standards in both our teaching and service delivery.',
-    icon: <Image src="https://msi-resources-pages.s3.amazonaws.com/images/icons/msi_profess_ser_page_icon.svg" alt="Equity and Inclusion" width={100} height={100} />, 
+    icon: <Image src="https://d1dc40k4xbphr.cloudfront.net/images/icons/msi_profess_ser_page_icon.svg" alt="Equity and Inclusion" width={100} height={100} />, 
   },
   {
     title: 'Innovation and Creativity',
     description: 'Embracing new methods and technologies to enhance learning.',
-    icon: <Image src="https://msi-resources-pages.s3.amazonaws.com/images/icons/msi_developing_icon.svg" alt="Innovation and Creativity" width={100} height={100} />, 
+    icon: <Image src="https://d1dc40k4xbphr.cloudfront.net/images/icons/msi_developing_icon.svg" alt="Innovation and Creativity" width={100} height={100} />, 
   },
   {
     title: 'Collaboration and Partnership',
     description: 'Working with educators, communities, and students to achieve success.',
-    icon: <Image src="https://msi-resources-pages.s3.amazonaws.com/images/icons/msi_about_collab_icon.svg" alt="Collaboration and Partnership" width={100} height={100} />,
+    icon: <Image src="https://d1dc40k4xbphr.cloudfront.net/images/icons/msi_about_collab_icon.svg" alt="Collaboration and Partnership" width={100} height={100} />,
   },
   {
     title: 'Accountability and Transparency',
     description: 'We hold ourselves accountable and maintain transparency in all our actions.',
-    icon: <Image src="https://msi-resources-pages.s3.amazonaws.com/images/icons/msi_about_instructors_icon.svg" alt="Accountability and Transparency" width={100} height={100} />,
+    icon: <Image src="https://d1dc40k4xbphr.cloudfront.net/images/icons/msi_about_instructors_icon.svg" alt="Accountability and Transparency" width={100} height={100} />,
   },
   {
     title: 'Continuous Improvement',
     description: 'We are committed to constant growth and development to better serve our students.',
-    icon: <Image src="https://msi-resources-pages.s3.amazonaws.com/images/icons/msi_students_service_page_icon.svg" alt="Continuous Improvement" width={100} height={100} />,
+    icon: <Image src="https://d1dc40k4xbphr.cloudfront.net/images/icons/msi_students_service_page_icon.svg" alt="Continuous Improvement" width={100} height={100} />,
   },  
 ]
 
@@ -117,7 +117,7 @@ export default function About() {
               <Card className="h-full bg-white shadow-lg hover:shadow-xl transition-all duration-300">
                 <CardContent className="p-8">
                   <div className="text-4xl mb-6">
-                  <Image src="https://msi-resources-pages.s3.amazonaws.com/images/icons/msi_developing_icon.svg" alt="Mission" width={100} height={100} />
+                  <Image src="https://d1dc40k4xbphr.cloudfront.net/images/icons/msi_developing_icon.svg" alt="Mission" width={100} height={100} />
                   </div>
                   <h2 className="text-3xl font-bold mb-6 text-navy-blue">Our Mission</h2>
                   <p className="text-gray-600 leading-relaxed text-lg">
@@ -142,7 +142,7 @@ export default function About() {
               <Card className="h-full bg-white shadow-lg hover:shadow-xl transition-all duration-300">
                 <CardContent className="p-8">
                   <div className="text-4xl mb-6">
-                  <Image src="https://msi-resources-pages.s3.amazonaws.com/images/icons/msi_developing_icon.svg" alt="Vision" width={100} height={100} />
+                  <Image src="https://d1dc40k4xbphr.cloudfront.net/images/icons/msi_developing_icon.svg" alt="Vision" width={100} height={100} />
                   </div>
                   <h2 className="text-3xl font-bold mb-6 text-navy-blue">Our Vision</h2>
                   <p className="text-gray-600 leading-relaxed text-lg">
@@ -293,7 +293,7 @@ export default function About() {
               <div className="md:w-1/2">
                 <div className="relative h-[600px] w-full rounded-2xl overflow-hidden shadow-2xl">
                   <Image
-                    src="https://msi-resources-pages.s3.amazonaws.com/images/board_members/msi_board_Mr_Zenith_Tsengwa.webp"
+                    src="https://d1dc40k4xbphr.cloudfront.net/images/board_members/msi_board_Mr_Zenith_Tsengwa.webp"
                     alt="CEO"
                     fill
                     className="object-cover"

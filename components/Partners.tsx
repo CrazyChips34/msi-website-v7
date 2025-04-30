@@ -7,97 +7,97 @@ import Link from 'next/link'
 const Partners = () => {
   const logos = [
     {
-      src: 'https://msi-resources-pages.s3.amazonaws.com/images/msi-partners/msi_partner_barloworld-logo.png',
+      src: 'https://d1dc40k4xbphr.cloudfront.net/images/msi-partners/msi_partner_barloworld-logo.png',
       alt: 'Barloworld',
       width: 200,
       url: 'https://www.barloworld.com'
     },
     {
-      src: 'https://msi-resources-pages.s3.amazonaws.com/images/msi-partners/msi_partner_eastern_cape.svg',
+      src: 'https://d1dc40k4xbphr.cloudfront.net/images/msi-partners/msi_partner_eastern_cape.svg',
       alt: 'Eastern Cape Education',
       width: 200,
       url: 'https://eceducation.gov.za/'
     },
     {
-      src: 'https://msi-resources-pages.s3.amazonaws.com/images/msi-partners/msi_partner_standard_bank_logo.svg',
+      src: 'https://d1dc40k4xbphr.cloudfront.net/images/msi-partners/msi_partner_standard_bank_logo.svg',
       alt: 'Standard Bank',
       width: 200,
       url: 'https://www.standardbank.co.za'
     },
     {
-      src: 'https://msi-resources-pages.s3.amazonaws.com/images/msi-partners/msi_partner_university_of_fort_hare.png',
+      src: 'https://d1dc40k4xbphr.cloudfront.net/images/msi-partners/msi_partner_university_of_fort_hare.png',
       alt: 'University of Fort Hare',
       width: 200,
       url: 'https://www.ufh.ac.za/'
     },
     {
-      src: 'https://msi-resources-pages.s3.amazonaws.com/images/msi-partners/msi_partner_grindrod-logo-color.svg',
+      src: 'https://d1dc40k4xbphr.cloudfront.net/images/msi-partners/msi_partner_grindrod-logo-color.svg',
       alt: 'Grindrod',
       width: 200,
       url: 'https://www.grindrod.com/'
     },
     {
-      src: 'https://msi-resources-pages.s3.amazonaws.com/images/msi-partners/msi_partner_adopt_a_school.svg',
+      src: 'https://d1dc40k4xbphr.cloudfront.net/images/msi-partners/msi_partner_adopt_a_school.svg',
       alt: 'Adopt a School Foundation',
       width: 240,
       url: 'https://www.adoptaschool.org.za/'
     },
     {
-      src: 'https://msi-resources-pages.s3.amazonaws.com/images/msi-partners/msi_partners_Zenex.png',
+      src: 'https://d1dc40k4xbphr.cloudfront.net/images/msi-partners/msi_partners_Zenex.png',
       alt: 'Zenex Foundation',
       width: 200,
       url: 'https://www.zenexfoundation.org.za/'
     },
     {
-      src: 'https://msi-resources-pages.s3.amazonaws.com/images/msi-partners/msi_patner_idc.png',
+      src: 'https://d1dc40k4xbphr.cloudfront.net/images/msi-partners/msi_patner_idc.png',
       alt: 'Industrial Development Corporation',
       width: 200,
       url: 'https://www.idc.co.za/'
     },
     {
-      src: 'https://msi-resources-pages.s3.amazonaws.com/images/msi-partners/msi_partner_cwn.jpg',
+      src: 'https://d1dc40k4xbphr.cloudfront.net/images/msi-partners/msi_partner_cwn.jpg',
       alt: 'CWN',
       width: 200,
       url: ''
     },
     {
-      src: 'https://msi-resources-pages.s3.amazonaws.com/images/msi-partners/msi_partner_nedbank.svg',
+      src: 'https://d1dc40k4xbphr.cloudfront.net/images/msi-partners/msi_partner_nedbank.svg',
       alt: 'Nedbank',
       width: 200,
       url: 'https://personal.nedbank.co.za/home.html'
     },
     {
-      src: 'https://msi-resources-pages.s3.amazonaws.com/images/msi-partners/msi_partner_limbe.jpg',
+      src: 'https://d1dc40k4xbphr.cloudfront.net/images/msi-partners/msi_partner_limbe.jpg',
       alt: 'Limbe Energy',
       width: 200,
       url: 'https://www.facebook.com/limbeenergy/'
     },
     {
-      src: 'https://msi-resources-pages.s3.amazonaws.com/images/msi-partners/msi_partner_RAF-logo.jpg',
+      src: 'https://d1dc40k4xbphr.cloudfront.net/images/msi-partners/msi_partner_RAF-logo.jpg',
       alt: 'Road Accident Fund',
       width: 200,
       url: 'https://www.raf.co.za/Pages/Default.aspx'
     },
     {
-      src: 'https://msi-resources-pages.s3.amazonaws.com/images/msi-partners/msi_partner_sapco.jpg',
+      src: 'https://d1dc40k4xbphr.cloudfront.net/images/msi-partners/msi_partner_sapco.jpg',
       alt: 'SA Public Colleges Organisation',
       width: 200,
       url: 'https://sacpo.co.za/'
     },
     {
-      src: 'https://msi-resources-pages.s3.amazonaws.com/images/msi-partners/msi_partners_DHET.png',
+      src: 'https://d1dc40k4xbphr.cloudfront.net/images/msi-partners/msi_partners_DHET.png',
       alt: 'Department of Higher Education and Training',
       width: 200,
       url: 'https://www.dhet.gov.za/'
     },
     {
-      src: 'https://msi-resources-pages.s3.amazonaws.com/images/msi-partners/msi_partner_dbe.png',
+      src: 'https://d1dc40k4xbphr.cloudfront.net/images/msi-partners/msi_partner_dbe.png',
       alt: 'Department of Basic Education',
       width: 200,
       url: 'https://www.education.gov.za/'
     },
     {
-      src: 'https://msi-resources-pages.s3.amazonaws.com/images/msi-partners/msi_partner_airlink-logo.svg',
+      src: 'https://d1dc40k4xbphr.cloudfront.net/images/msi-partners/msi_partner_airlink-logo.svg',
       alt: 'Airlink',
       width: 200,
       url: 'https://www.flyairlink.com/'

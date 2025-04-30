@@ -23,7 +23,7 @@ export const BLOG_POSTS: BlogPost[] = [
       title: 'Celebrating Excellence at the Eastern Cape NSC 2024 Awards',
       date: '2025-03-15',
       author: 'MSI Team',
-      image: 'https://msi-resources-pages.s3.amazonaws.com/images/blog/msi_blogs_achievement.png',
+      image: 'https://d1dc40k4xbphr.cloudfront.net/images/blog/msi_blogs_achievement.png',
       tags: ['Awards', 'Education', 'Excellence'],
       excerpt: 'MSI was honored to be a proud partner of the Eastern Cape NSC 2024 Awards, a prestigious event celebrating the academic achievements of outstanding learners in the province.'
     },
@@ -55,7 +55,7 @@ mission of driving excellence in education and inspiring the next generation of 
       title: 'Empowering Tutors, Transforming Futures: MSI\'s Tutor Training Workshop in Umthatha',
       date: '2025-02-15',
       author: 'MSI Team',
-      image: 'https://msi-resources-pages.s3.amazonaws.com/images/blog/msi_blogs_workshop.png',
+      image: 'https://d1dc40k4xbphr.cloudfront.net/images/blog/msi_blogs_workshop.png',
       tags: ['Training', 'Education', 'Tutors'],
       excerpt: 'From 10 - 12 February 2025, MSI hosted an intensive Tutor Training Workshop in Umthatha, aimed at equipping our dedicated tutors with the essential skills and strategies needed to support Grade 12 learners.'
     },
@@ -88,7 +88,7 @@ educators and learners to achieve greatness.
       title: 'MSI Inspires Future Innovators at the Working World Exhibition 2025',
       date: '2025-01-25',
       author: 'MSI Team',
-      image: 'https://msi-resources-pages.s3.amazonaws.com/images/blog/msi_blogs_exhibition.png',
+      image: 'https://d1dc40k4xbphr.cloudfront.net/images/blog/msi_blogs_exhibition.png',
       tags: ['Exhibition', 'STEM Careers', 'Youth'],
       excerpt: 'MSI was proud to be an exhibitor at the Working World Exhibition 2025, a premier event that connects over 50 high schools in the Nelson Mandela Bay Metro with career and education opportunities.'
     },

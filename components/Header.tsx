@@ -179,7 +179,7 @@ const Header = () => {
         <div className="flex justify-between items-center py-4">
           <Link href="/">
             <Image 
-              src="https://msi-resources-pages.s3.amazonaws.com/images/msi_logo.png" 
+              src="https://d1dc40k4xbphr.cloudfront.net/images/msi_logo.png"
               alt="MSI Logo" 
               width={100} 
               height={50} 

@@ -46,7 +46,7 @@ export default function PyramidDiagram() {
               <CardContent className="p-1 flex flex-col items-center text-center justify-center h-full">
                 <div className="w-14 h-14 flex items-center justify-center mb-0.5">
                   <Image 
-                    src="https://msi-resources-pages.s3.amazonaws.com/images/icons/msi_about_transparen_lab.png" 
+                    src="https://d1dc40k4xbphr.cloudfront.net/images/icons/msi_about_transparen_lab.png" 
                     alt="Innovative Approach" 
                     width={50} // Reduced for better proportion
                     height={50} // Reduced for better proportion
@@ -92,7 +92,7 @@ export default function PyramidDiagram() {
               <CardContent className="p-1 flex flex-col items-center text-center h-full">
                 <div className="w-14 h-14 flex items-center justify-center mb-0.5">
                   <Image 
-                    src="https://msi-resources-pages.s3.amazonaws.com/images/icons/msi_profess_ser_page_icon.svg" 
+                    src="https://d1dc40k4xbphr.cloudfront.net/images/icons/msi_profess_ser_page_icon.svg" 
                     alt="Afrocentrism" 
                     width={56} 
                     height={56} 
@@ -117,7 +117,7 @@ export default function PyramidDiagram() {
               <div className="absolute top-0 left-0 w-full h-1 bg-red-200"></div>
               <CardContent className="p-1 flex flex-col items-center text-center h-full">
                 <div className="w-14 h-14 flex items-center justify-center mb-0.5">
-                  <Image src="https://msi-resources-pages.s3.amazonaws.com/images/icons/msi_about_inovate_icon.svg" alt="Demystify" width={56} height={56} className="object-contain" />
+                  <Image src="https://d1dc40k4xbphr.cloudfront.net/images/icons/msi_about_inovate_icon.svg" alt="Demystify" width={56} height={56} className="object-contain" />
                 </div>
                 <h3 className="text-sm font-bold mb-0 text-navy-blue">DEMYSTIFY</h3>
                 <p className="text-gray-700 text-xs">Making maths and science more accessible.</p>
@@ -137,7 +137,7 @@ export default function PyramidDiagram() {
               <div className="absolute top-0 left-0 w-full h-1 bg-red-200"></div>
               <CardContent className="p-1 flex flex-col items-center text-center h-full">
                 <div className="w-14 h-14 flex items-center justify-center mb-0.5">
-                  <Image src="https://msi-resources-pages.s3.amazonaws.com/images/icons/msi_development_icon.svg" alt="Reskilling" width={56} height={56} className="object-contain" />
+                  <Image src="https://d1dc40k4xbphr.cloudfront.net/images/icons/msi_development_icon.svg" alt="Reskilling" width={56} height={56} className="object-contain" />
                 </div>
                 <h3 className="text-sm font-bold mb-0 text-navy-blue">RESKILLING</h3>
                 <p className="text-gray-700 text-xs">Equipping educators with effective methodologies.</p>
@@ -157,7 +157,7 @@ export default function PyramidDiagram() {
               <div className="absolute top-0 left-0 w-full h-1 bg-red-200"></div>
               <CardContent className="p-1 flex flex-col items-center text-center h-full">
                 <div className="w-14 h-14 flex items-center justify-center mb-0.5">
-                  <Image src="https://msi-resources-pages.s3.amazonaws.com/images/icons/msi_developing.svg" alt="Developing" width={56} height={56} className="object-contain" />
+                  <Image src="https://d1dc40k4xbphr.cloudfront.net/images/icons/msi_developing.svg" alt="Developing" width={56} height={56} className="object-contain" />
                 </div>
                 <h3 className="text-sm font-bold mb-0 text-navy-blue">DEVELOPING</h3>
                 <p className="text-gray-700 text-xs">Fostering critical thinking and innovation.</p>
@@ -194,7 +194,7 @@ export default function PyramidDiagram() {
               <CardContent className="p-1 flex flex-col items-center text-center justify-center h-full">
                 <div className="w-14 h-14 flex items-center justify-center mb-0.5">
                   <Image 
-                    src="https://msi-resources-pages.s3.amazonaws.com/images/icons/msi_about_instruct_icon.png" 
+                    src="https://d1dc40k4xbphr.cloudfront.net/images/icons/msi_about_instruct_icon.png" 
                     alt="Expert Instructors" 
                     width={50} // Match top icon size
                     height={50} // Match top icon size
@@ -220,7 +220,7 @@ export default function PyramidDiagram() {
               <CardContent className="p-1 flex flex-col items-center text-center justify-center h-full">
                 <div className="w-14 h-14 flex items-center justify-center mb-0.5">
                   <Image 
-                    src="https://msi-resources-pages.s3.amazonaws.com/images/icons/msi_about_results_transparent.png" 
+                    src="https://d1dc40k4xbphr.cloudfront.net/images/icons/msi_about_results_transparent.png" 
                     alt="Proven Results" 
                     width={50} // Match top icon size
                     height={50} // Match top icon size

@@ -5,7 +5,7 @@ const path = require('path');
 const rootDir = process.cwd();
 
 // S3 prefix
-const s3Prefix = 'https://msi-resources-pages.s3.amazonaws.com/images/';
+const s3Prefix = 'https://d1dc40k4xbphr.cloudfront.net/images/';
 
 // Supported file extensions
 const validExtensions = ['.js', '.jsx', '.ts', '.tsx', '.html'];

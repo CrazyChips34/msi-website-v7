@@ -5,7 +5,12 @@ const nextConfig = {
   },
   pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'md', 'mdx'],
   images: {
-    domains: ['msi-resources-pages.s3.amazonaws.com'],
+    remotePatterns: [{
+      protocol: 'https',
+      //hostname: 'https://d1dc40k4xbphr.cloudfront.net',
+      hostname:'d1dc40k4xbphr.cloudfront.net',
+      pathname: '/images/**',
+    }],
   },
 };
 

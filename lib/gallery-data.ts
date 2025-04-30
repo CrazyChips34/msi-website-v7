@@ -27,7 +27,7 @@ export const categories = [
 export const galleryImages: GalleryImage[] = [
         {
           id: 1,
-          src: 'https://msi-resources-pages.s3.amazonaws.com/images/gallery/msi-classroom-1.jpg',
+          src: 'https://d1dc40k4xbphr.cloudfront.net/images/gallery/msi-classroom-1.jpg',
           alt: 'Students in study session',
           category: 'classes',
           title: 'Collaborative Learning',
@@ -35,7 +35,7 @@ export const galleryImages: GalleryImage[] = [
         },
         {
           id: 2,
-          src: 'https://msi-resources-pages.s3.amazonaws.com/images/gallery/msi-hero.jpg',
+          src: 'https://d1dc40k4xbphr.cloudfront.net/images/gallery/msi-hero.jpg',
           alt: 'Science workshop',
           category: 'workshops',
           title: 'Science Workshop',
@@ -43,7 +43,7 @@ export const galleryImages: GalleryImage[] = [
         },
         {
           id: 3,
-          src: 'https://msi-resources-pages.s3.amazonaws.com/images/gallery/msi-Outdoor.jpg',
+          src: 'https://d1dc40k4xbphr.cloudfront.net/images/gallery/msi-Outdoor.jpg',
           alt: 'Students in outdoor session',
           category: 'classes',
           title: 'Outdoor Learning',
@@ -51,7 +51,7 @@ export const galleryImages: GalleryImage[] = [
         },
         {
           id: 4,
-          src: 'https://msi-resources-pages.s3.amazonaws.com/images/gallery/msi-learners.jpg',
+          src: 'https://d1dc40k4xbphr.cloudfront.net/images/gallery/msi-learners.jpg',
           alt: 'STEM camp activity',
           category: 'workshops',
           title: 'STEM Camp',
@@ -59,7 +59,7 @@ export const galleryImages: GalleryImage[] = [
         },
         {
           id: 5,
-          src: 'https://msi-resources-pages.s3.amazonaws.com/images/gallery/msi-applicant.jpg',
+          src: 'https://d1dc40k4xbphr.cloudfront.net/images/gallery/msi-applicant.jpg',
           alt: 'Students studying together',
           category: 'classes',
           title: 'Group Study Session',
@@ -67,7 +67,7 @@ export const galleryImages: GalleryImage[] = [
         },
         {
           id: 6,
-          src: 'https://msi-resources-pages.s3.amazonaws.com/images/gallery/msi-talks.jpg',
+          src: 'https://d1dc40k4xbphr.cloudfront.net/images/gallery/msi-talks.jpg',
           alt: 'Educational presentation',
           category: 'events',
           title: 'Educational Talk',
@@ -75,7 +75,7 @@ export const galleryImages: GalleryImage[] = [
         },
         {
           id: 7,
-          src: 'https://msi-resources-pages.s3.amazonaws.com/images/gallery/msi-donations.jpg',
+          src: 'https://d1dc40k4xbphr.cloudfront.net/images/gallery/msi-donations.jpg',
           alt: 'Community outreach program',
           category: 'events',
           title: 'Community Support',
@@ -83,7 +83,7 @@ export const galleryImages: GalleryImage[] = [
         },
         {
           id: 8,
-          src: 'https://msi-resources-pages.s3.amazonaws.com/images/gallery/msi-giftbags.jpg',
+          src: 'https://d1dc40k4xbphr.cloudfront.net/images/gallery/msi-giftbags.jpg',
           alt: 'School outreach program',
           category: 'events',
           title: 'School Visit',
@@ -91,7 +91,7 @@ export const galleryImages: GalleryImage[] = [
         },
         {
           id: 9,
-          src: 'https://msi-resources-pages.s3.amazonaws.com/images/gallery/msi-jongi1.jpg',
+          src: 'https://d1dc40k4xbphr.cloudfront.net/images/gallery/msi-jongi1.jpg',
           alt: 'School outreach program',
           category: 'events',
           title: 'School Visit',
@@ -99,7 +99,7 @@ export const galleryImages: GalleryImage[] = [
         },
         {
           id: 10,
-          src: 'https://msi-resources-pages.s3.amazonaws.com/images/gallery/msi-jongi2.jpg',
+          src: 'https://d1dc40k4xbphr.cloudfront.net/images/gallery/msi-jongi2.jpg',
           alt: 'School outreach program',
           category: 'events',
           title: 'School Visit',
@@ -107,7 +107,7 @@ export const galleryImages: GalleryImage[] = [
         },
         {
           id: 11,
-          src: 'https://msi-resources-pages.s3.amazonaws.com/images/gallery/msi-jongi3.jpg',
+          src: 'https://d1dc40k4xbphr.cloudfront.net/images/gallery/msi-jongi3.jpg',
           alt: 'School outreach program',
           category: 'events',
           title: 'School Visit',
@@ -115,7 +115,7 @@ export const galleryImages: GalleryImage[] = [
         },
         {
           id: 12,
-          src: 'https://msi-resources-pages.s3.amazonaws.com/images/gallery/msi-jongi4.jpg',
+          src: 'https://d1dc40k4xbphr.cloudfront.net/images/gallery/msi-jongi4.jpg',
           alt: 'School outreach program',
           category: 'events',
           title: 'School Visit',
@@ -123,7 +123,7 @@ export const galleryImages: GalleryImage[] = [
         },
         {
           id: 13,
-          src: 'https://msi-resources-pages.s3.amazonaws.com/images/gallery/msi-jongi6.jpg',
+          src: 'https://d1dc40k4xbphr.cloudfront.net/images/gallery/msi-jongi6.jpg',
           alt: 'School outreach program',
           category: 'events',
           title: 'School Visit',
@@ -131,7 +131,7 @@ export const galleryImages: GalleryImage[] = [
         },
         {
           id: 14,
-          src: 'https://msi-resources-pages.s3.amazonaws.com/images/gallery/msi-learner.png',
+          src: 'https://d1dc40k4xbphr.cloudfront.net/images/gallery/msi-learner.png',
           alt: 'Students in classroom',
           category: 'classes',
           title: 'Mathematics Class',
@@ -139,7 +139,7 @@ export const galleryImages: GalleryImage[] = [
         },
         {
           id: 15,
-          src: 'https://msi-resources-pages.s3.amazonaws.com/images/gallery/msi-teaching.jpg',
+          src: 'https://d1dc40k4xbphr.cloudfront.net/images/gallery/msi-teaching.jpg',
           alt: 'Educator in action',
           category: 'classes',
           title: 'Inspiring Teaching Moment',
@@ -147,7 +147,7 @@ export const galleryImages: GalleryImage[] = [
         },
         {
           id: 16,
-          src: 'https://msi-resources-pages.s3.amazonaws.com/images/gallery/msi-classroom-3.jpg',
+          src: 'https://d1dc40k4xbphr.cloudfront.net/images/gallery/msi-classroom-3.jpg',
           alt: 'Student group',
           category: 'classes',
           title: 'Learning Together',
@@ -155,7 +155,7 @@ export const galleryImages: GalleryImage[] = [
         },
         {
           id: 17,
-          src: 'https://msi-resources-pages.s3.amazonaws.com/images/gallery/msi-tutor workshop.png',
+          src: 'https://d1dc40k4xbphr.cloudfront.net/images/gallery/msi-tutor workshop.png',
           alt: 'Tutor workshop',
           category: 'workshops',
           title: 'Tutor Workshop',
@@ -163,7 +163,7 @@ export const galleryImages: GalleryImage[] = [
         },
         {
           id: 18,
-          src: 'https://msi-resources-pages.s3.amazonaws.com/images/gallery/msi-councelling.jpg',
+          src: 'https://d1dc40k4xbphr.cloudfront.net/images/gallery/msi-councelling.jpg',
           alt: 'Community event',
           category: 'events',
           title: 'Community Day',
@@ -171,7 +171,7 @@ export const galleryImages: GalleryImage[] = [
         },
         {
           id: 19,
-          src: 'https://msi-resources-pages.s3.amazonaws.com/images/gallery/msi-mobile-laboratories.jpg',
+          src: 'https://d1dc40k4xbphr.cloudfront.net/images/gallery/msi-mobile-laboratories.jpg',
           alt: 'Science laboratory session',
           category: 'workshops',
           title: 'Science Lab',
@@ -179,7 +179,7 @@ export const galleryImages: GalleryImage[] = [
         },
         {
           id: 20,
-          src: 'https://msi-resources-pages.s3.amazonaws.com/images/gallery/msi-tutor.jpg',
+          src: 'https://d1dc40k4xbphr.cloudfront.net/images/gallery/msi-tutor.jpg',
           alt: 'One-on-one tutoring',
           category: 'classes',
           title: 'Individual Tutoring',
@@ -187,7 +187,7 @@ export const galleryImages: GalleryImage[] = [
         },
         {
           id: 21,
-          src: 'https://msi-resources-pages.s3.amazonaws.com/images/gallery/msi-shawburry1.jpg',
+          src: 'https://d1dc40k4xbphr.cloudfront.net/images/gallery/msi-shawburry1.jpg',
           alt: 'Educational presentation',
           category: 'events',
           title: 'Educational Talk',
@@ -195,7 +195,7 @@ export const galleryImages: GalleryImage[] = [
         },
         {
           id: 22,
-          src: 'https://msi-resources-pages.s3.amazonaws.com/images/gallery/msi-shawburry2.jpg',
+          src: 'https://d1dc40k4xbphr.cloudfront.net/images/gallery/msi-shawburry2.jpg',
           alt: 'Educational presentation',
           category: 'events',
           title: 'Educational Talk',
@@ -203,7 +203,7 @@ export const galleryImages: GalleryImage[] = [
         },
         {
           id: 23,
-          src: 'https://msi-resources-pages.s3.amazonaws.com/images/gallery/msi-shawburry3.jpg',
+          src: 'https://d1dc40k4xbphr.cloudfront.net/images/gallery/msi-shawburry3.jpg',
           alt: 'Educational presentation',
           category: 'events',
           title: 'Educational Talk',
@@ -211,7 +211,7 @@ export const galleryImages: GalleryImage[] = [
         },
         {
           id: 24,
-          src: 'https://msi-resources-pages.s3.amazonaws.com/images/gallery/msi-shawburry4.jpg',
+          src: 'https://d1dc40k4xbphr.cloudfront.net/images/gallery/msi-shawburry4.jpg',
           alt: 'Educational presentation',
           category: 'events',
           title: 'Educational Talk',
@@ -219,7 +219,7 @@ export const galleryImages: GalleryImage[] = [
         },
         {
           id: 25,
-          src: 'https://msi-resources-pages.s3.amazonaws.com/images/gallery/msi-tutor-development.jpg',
+          src: 'https://d1dc40k4xbphr.cloudfront.net/images/gallery/msi-tutor-development.jpg',
           alt: 'Tutor development session',
           category: 'workshops',
           title: 'Tutor Development Workshop',
@@ -227,7 +227,7 @@ export const galleryImages: GalleryImage[] = [
         },
         {
           id: 26,
-          src: 'https://msi-resources-pages.s3.amazonaws.com/images/gallery/msi-classroom-2.jpg',
+          src: 'https://d1dc40k4xbphr.cloudfront.net/images/gallery/msi-classroom-2.jpg',
           alt: 'Students in study session',
           category: 'classes',
           title: 'Collaborative Learning',
@@ -235,7 +235,7 @@ export const galleryImages: GalleryImage[] = [
         },
         {
           id: 27,
-          src: 'https://msi-resources-pages.s3.amazonaws.com/images/gallery/msi-application.jpg',
+          src: 'https://d1dc40k4xbphr.cloudfront.net/images/gallery/msi-application.jpg',
           alt: 'Student application process',
           category: 'classes',
           title: 'Application Process',
@@ -243,7 +243,7 @@ export const galleryImages: GalleryImage[] = [
         },
         {
           id: 28,
-          src: 'https://msi-resources-pages.s3.amazonaws.com/images/gallery/msi-application-2.jpg',
+          src: 'https://d1dc40k4xbphr.cloudfront.net/images/gallery/msi-application-2.jpg',
           alt: 'Student application session',
           category: 'classes',
           title: 'Application Support',
@@ -251,7 +251,7 @@ export const galleryImages: GalleryImage[] = [
         },
         {
           id: 29,
-          src: 'https://msi-resources-pages.s3.amazonaws.com/images/gallery/msi-application-3.jpg',
+          src: 'https://d1dc40k4xbphr.cloudfront.net/images/gallery/msi-application-3.jpg',
           alt: 'Application workshop',
           category: 'workshops',
           title: 'Application Workshop',
@@ -259,7 +259,7 @@ export const galleryImages: GalleryImage[] = [
         },
         {
           id: 30,
-          src: 'https://msi-resources-pages.s3.amazonaws.com/images/gallery/msi-application-4.jpg',
+          src: 'https://d1dc40k4xbphr.cloudfront.net/images/gallery/msi-application-4.jpg',
           alt: 'Application assistance',
           category: 'classes',
           title: 'One-on-One Application Help',
@@ -267,7 +267,7 @@ export const galleryImages: GalleryImage[] = [
         },
         {
           id: 31,
-          src: 'https://msi-resources-pages.s3.amazonaws.com/images/gallery/msi-classroom-learners.jpg',
+          src: 'https://d1dc40k4xbphr.cloudfront.net/images/gallery/msi-classroom-learners.jpg',
           alt: 'Classroom learning',
           category: 'classes',
           title: 'Engaged Learning',
@@ -275,7 +275,7 @@ export const galleryImages: GalleryImage[] = [
         },
         {
           id: 32,
-          src: 'https://msi-resources-pages.s3.amazonaws.com/images/gallery/msi-header.jpg',
+          src: 'https://d1dc40k4xbphr.cloudfront.net/images/gallery/msi-header.jpg',
           alt: 'Program overview',
           category: 'events',
           title: 'MSI Program',
@@ -283,7 +283,7 @@ export const galleryImages: GalleryImage[] = [
         },
         {
           id: 33,
-          src: 'https://msi-resources-pages.s3.amazonaws.com/images/gallery/msi-lab.jpg',
+          src: 'https://d1dc40k4xbphr.cloudfront.net/images/gallery/msi-lab.jpg',
           alt: 'Laboratory session',
           category: 'workshops',
           title: 'Science Laboratory',
@@ -291,7 +291,7 @@ export const galleryImages: GalleryImage[] = [
         },
         {
           id: 34,
-          src: 'https://msi-resources-pages.s3.amazonaws.com/images/gallery/msi-lab-1.jpg',
+          src: 'https://d1dc40k4xbphr.cloudfront.net/images/gallery/msi-lab-1.jpg',
           alt: 'Science experiment',
           category: 'workshops',
           title: 'Hands-on Science',
@@ -299,7 +299,7 @@ export const galleryImages: GalleryImage[] = [
         },
         {
           id: 35,
-          src: 'https://msi-resources-pages.s3.amazonaws.com/images/gallery/msi-learners-alphendale.jpg',
+          src: 'https://d1dc40k4xbphr.cloudfront.net/images/gallery/msi-learners-alphendale.jpg',
           alt: 'Alphendale students',
           category: 'classes',
           title: 'Alphendale Learning Center',
@@ -307,7 +307,7 @@ export const galleryImages: GalleryImage[] = [
         },
         {
           id: 36,
-          src: 'https://msi-resources-pages.s3.amazonaws.com/images/gallery/msi-learner-development.jpg',
+          src: 'https://d1dc40k4xbphr.cloudfront.net/images/gallery/msi-learner-development.jpg',
           alt: 'Learner Development',
           category: 'classes',
           title: 'Learner Development',
@@ -315,7 +315,7 @@ export const galleryImages: GalleryImage[] = [
         },
         {
           id: 37,
-          src: 'https://msi-resources-pages.s3.amazonaws.com/images/gallery/msi-outdoor-work.jpg',
+          src: 'https://d1dc40k4xbphr.cloudfront.net/images/gallery/msi-outdoor-work.jpg',
           alt: 'Outdoor activities',
           category: 'workshops',
           title: 'Field Work',
@@ -323,7 +323,7 @@ export const galleryImages: GalleryImage[] = [
         },
         {
           id: 38,
-          src: 'https://msi-resources-pages.s3.amazonaws.com/images/gallery/msi-staff.jpg',
+          src: 'https://d1dc40k4xbphr.cloudfront.net/images/gallery/msi-staff.jpg',
           alt: 'MSI staff members',
           category: 'events',
           title: 'Our Team',

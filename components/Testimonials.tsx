@@ -6,12 +6,12 @@ import { motion } from 'framer-motion'
 import Image from 'next/image'
 
 const testimonials = [
-  { image: 'https://msi-resources-pages.s3.amazonaws.com/images/testimonials/msi-testimonial-1.jpg' },
-  { image: 'https://msi-resources-pages.s3.amazonaws.com/images/testimonials/msi-testimonial-2.jpg' },
-  { image: 'https://msi-resources-pages.s3.amazonaws.com/images/testimonials/msi-testimonial-3.jpeg' },
-  { image: 'https://msi-resources-pages.s3.amazonaws.com/images/testimonials/msi-testimonial-4.jpg' },
-  { image: 'https://msi-resources-pages.s3.amazonaws.com/images/testimonials/msi-testimonial-5.jpg' },
-  { image: 'https://msi-resources-pages.s3.amazonaws.com/images/testimonials/msi-testimonial-6.jpeg' },
+  { image: 'https://d1dc40k4xbphr.cloudfront.net/images/testimonials/msi-testimonial-1.jpg' },
+  { image: 'https://d1dc40k4xbphr.cloudfront.net/images/testimonials/msi-testimonial-2.jpg' },
+  { image: 'https://d1dc40k4xbphr.cloudfront.net/images/testimonials/msi-testimonial-3.jpeg' },
+  { image: 'https://d1dc40k4xbphr.cloudfront.net/images/testimonials/msi-testimonial-4.jpg' },
+  { image: 'https://d1dc40k4xbphr.cloudfront.net/images/testimonials/msi-testimonial-5.jpg' },
+  { image: 'https://d1dc40k4xbphr.cloudfront.net/images/testimonials/msi-testimonial-6.jpeg' },
 ]
 
 const Testimonials = () => {

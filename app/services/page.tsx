@@ -31,47 +31,47 @@ interface Category {
 const categories: Category[] = [
   {
     name: "Learner Development",
-    icon: <Image src="https://msi-resources-pages.s3.amazonaws.com/images/icons/msi_students_service_page_icon.svg" alt="Learner Development" width={100} height={100} />, 
+    icon: <Image src="https://d1dc40k4xbphr.cloudfront.net/images/icons/msi_students_service_page_icon.svg" alt="Learner Development" width={100} height={100} />, 
     description: "Comprehensive programs designed to help students excel in mathematics and science through personalized support and enrichment."
   },
   {
     name: "Teacher Development",
-    icon: <Image src="https://msi-resources-pages.s3.amazonaws.com/images/icons/msi_profess_ser_page_icon.svg" alt="Teacher Development" width={100} height={100} />, 
+    icon: <Image src="https://d1dc40k4xbphr.cloudfront.net/images/icons/msi_profess_ser_page_icon.svg" alt="Teacher Development" width={100} height={100} />, 
     description: "Training and upskilling educators to improve teaching methodologies and enhance subject mastery for better student outcomes."
   },
   {
     name: "Tutor Development",
-    icon: <Image src="https://msi-resources-pages.s3.amazonaws.com/images/icons/msi_profess_ser_page_icon.svg" alt="Tutor Development" width={100} height={100} />, 
+    icon: <Image src="https://d1dc40k4xbphr.cloudfront.net/images/icons/msi_profess_ser_page_icon.svg" alt="Tutor Development" width={100} height={100} />, 
     description: "Equipping tutors with the necessary skills and resources to effectively support and inspire learners in STEM subjects."
   },
   {
     name: "Mobile Laboratories",
-    icon: <Image src="https://msi-resources-pages.s3.amazonaws.com/images/icons/msi_lab_icon.svg" alt="Mobile Laboratories" width={100} height={100} />, 
+    icon: <Image src="https://d1dc40k4xbphr.cloudfront.net/images/icons/msi_lab_icon.svg" alt="Mobile Laboratories" width={100} height={100} />, 
     description: "Bringing practical science experiments to schools with limited laboratory facilities for hands-on learning experiences."
   },
   {
     name: "Career Guidance & Role Modelling",
-    icon: <Image src="https://msi-resources-pages.s3.amazonaws.com/images/icons/msi_students_service_page_icon.svg" alt="Career Guidance & Role Modelling" width={100} height={100} />, 
+    icon: <Image src="https://d1dc40k4xbphr.cloudfront.net/images/icons/msi_students_service_page_icon.svg" alt="Career Guidance & Role Modelling" width={100} height={100} />, 
     description: "Connecting learners with industry professionals to inspire and guide their career choices in STEM fields."
   },
   {
     name: "Project Management",
-    icon: <Image src="https://msi-resources-pages.s3.amazonaws.com/images/icons/msi_profess_ser_page_icon.svg" alt="Project Management" width={100} height={100} />, 
+    icon: <Image src="https://d1dc40k4xbphr.cloudfront.net/images/icons/msi_profess_ser_page_icon.svg" alt="Project Management" width={100} height={100} />, 
     description: "Overseeing and implementing educational projects and initiatives with comprehensive planning and evaluation."
   },
   {
     name: "Research & Development",
-    icon: <Image src="https://msi-resources-pages.s3.amazonaws.com/images/icons/msi_lab_icon.svg" alt="Research & Development" width={100} height={100} />, 
+    icon: <Image src="https://d1dc40k4xbphr.cloudfront.net/images/icons/msi_lab_icon.svg" alt="Research & Development" width={100} height={100} />, 
     description: "Conducting studies and developing innovative strategies to improve STEM education through evidence-based approaches."
   },
   {
     name: "E-Learning",
-    icon: <Image src="https://msi-resources-pages.s3.amazonaws.com/images/icons/msi_digital_icon.svg" alt="E-Learning" width={100} height={100} />, 
+    icon: <Image src="https://d1dc40k4xbphr.cloudfront.net/images/icons/msi_digital_icon.svg" alt="E-Learning" width={100} height={100} />, 
     description: "Providing digital learning platforms and resources for accessible, flexible, and engaging education anywhere."
   },
   {
     name: "Learner Psychosocial Support",
-    icon: <Image src="https://msi-resources-pages.s3.amazonaws.com/images/icons/msi_digital_icon.svg" alt="Learner Psychosocial Support" width={100} height={100} />, 
+    icon: <Image src="https://d1dc40k4xbphr.cloudfront.net/images/icons/msi_digital_icon.svg" alt="Learner Psychosocial Support" width={100} height={100} />, 
     description: "Empowering tutors to support learners' emotional well-being, resilience, and motivation."
   }
 ]
@@ -88,7 +88,7 @@ const services: Service[] = [
       "Curriculum-aligned resources and materials",
       "Focus on building confidence and deep conceptual understanding"
     ],
-    image: "https://msi-resources-pages.s3.amazonaws.com/images/gallery/msi-learner-development.JPG",
+    image: "https://d1dc40k4xbphr.cloudfront.net/images/gallery/msi-learner-development.JPG",
     category: "Learner Development"
   },
   {
@@ -101,7 +101,7 @@ const services: Service[] = [
       "Ongoing mentorship and performance evaluation",
       "Resource development and sharing platforms"
     ],
-    image: "https://msi-resources-pages.s3.amazonaws.com/images/gallery/msi-tutor-development-training.jpg",
+    image: "https://d1dc40k4xbphr.cloudfront.net/images/gallery/msi-tutor-development-training.jpg",
     category: "Tutor Development"
   },
   {
@@ -114,7 +114,7 @@ const services: Service[] = [
       "Subject-specific professional development courses",
       "Regular assessment and constructive feedback mechanisms"
     ],
-    image: "https://msi-resources-pages.s3.amazonaws.com/images/gallery/msi-teacher-development.jpg",
+    image: "https://d1dc40k4xbphr.cloudfront.net/images/gallery/msi-teacher-development.jpg",
     category: "Teacher Development"
   },
   {
@@ -127,7 +127,7 @@ const services: Service[] = [
       "Interactive workshops on future career opportunities",
       "Industry site visits and shadowing experiences"
     ],
-    image: "https://msi-resources-pages.s3.amazonaws.com/images/gallery/msi-councelling.jpg",
+    image: "https://d1dc40k4xbphr.cloudfront.net/images/gallery/msi-councelling.jpg",
     category: "Career Guidance & Role Modelling"
   },
   {
@@ -140,7 +140,7 @@ const services: Service[] = [
       "Community outreach programs for underserved areas",
       "Training for local teachers on practical science instruction"
     ],
-    image: "https://msi-resources-pages.s3.amazonaws.com/images/gallery/msi-mobile-laboratories.jpg",
+    image: "https://d1dc40k4xbphr.cloudfront.net/images/gallery/msi-mobile-laboratories.jpg",
     category: "Mobile Laboratories"
   },
   {
@@ -153,7 +153,7 @@ const services: Service[] = [
       "Resource allocation and optimization",
       "Impact assessment and reporting"
     ],
-    image: "https://msi-resources-pages.s3.amazonaws.com/images/gallery/msi-project-management.jpg",
+    image: "https://d1dc40k4xbphr.cloudfront.net/images/gallery/msi-project-management.jpg",
     category: "Project Management"
   },
   {
@@ -166,7 +166,7 @@ const services: Service[] = [
       "Development of new teaching methodologies and resources",
       "Publication and dissemination of research findings"
     ],
-    image: "https://msi-resources-pages.s3.amazonaws.com/images/gallery/msi-teaching.jpg",
+    image: "https://d1dc40k4xbphr.cloudfront.net/images/gallery/msi-teaching.jpg",
     category: "Research & Development"
   },
   {
@@ -179,7 +179,7 @@ const services: Service[] = [
       "Progress tracking and personalized feedback systems",
       "Blended learning approaches that combine digital and traditional methods"
     ],
-    image: "https://msi-resources-pages.s3.amazonaws.com/images/gallery/msi-tutor.jpg",
+    image: "https://d1dc40k4xbphr.cloudfront.net/images/gallery/msi-tutor.jpg",
     category: "E-Learning"
   },
   {
@@ -192,7 +192,7 @@ const services: Service[] = [
       "Personalized mentorship and peer support networks",
       "Access to counseling resources and intervention strategies"
     ],
-    image: "https://msi-resources-pages.s3.amazonaws.com/images/gallery/msi-talks.jpg",
+    image: "https://d1dc40k4xbphr.cloudfront.net/images/gallery/msi-talks.jpg",
     category: "Learner Psychosocial Support"
   }
 ]

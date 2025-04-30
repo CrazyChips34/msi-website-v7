@@ -8,12 +8,12 @@ import { Button } from './ui/button'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 
 const images = [
-  { id: 1, src: 'https://msi-resources-pages.s3.amazonaws.com/images/gallery/msi-Outdoor.jpg', alt: 'MSI outdoor signup booth', title: 'Community Outreach', description: 'Engaging with our community through outdoor events' },
-  { id: 2, src: 'https://msi-resources-pages.s3.amazonaws.com/images/gallery/msi-lab-1.jpg', alt: 'Students in laboratory session', title: 'Practical Science', description: 'Hands-on experimentation in our well-equipped laboratory' },
-  { id: 3, src: 'https://msi-resources-pages.s3.amazonaws.com/images/gallery/msi-learners.jpg', alt: 'STEM camp outdoor activity', title: 'STEM Activities', description: 'Hands-on learning experiences in STEM' },
-  { id: 4, src: 'https://msi-resources-pages.s3.amazonaws.com/images/gallery/msi-talks.jpg', alt: 'School outreach program', title: 'Educational Talks', description: 'Inspiring the next generation of STEM leaders' },
-  { id: 5, src: 'https://msi-resources-pages.s3.amazonaws.com/images/gallery/msi-classroom-1.jpg', alt: 'Group of students learning together', title: 'Collaborative Learning', description: 'Students working together to solve complex problems' },
-  { id: 6, src: 'https://msi-resources-pages.s3.amazonaws.com/images/gallery/msi-donations.jpg', alt: 'Community outreach program', title: 'Community Impact', description: 'Making a difference in our local communities' },
+  { id: 1, src: 'https://d1dc40k4xbphr.cloudfront.net/images/gallery/msi-Outdoor.jpg', alt: 'MSI outdoor signup booth', title: 'Community Outreach', description: 'Engaging with our community through outdoor events' },
+  { id: 2, src: 'https://d1dc40k4xbphr.cloudfront.net/images/gallery/msi-lab-1.jpg', alt: 'Students in laboratory session', title: 'Practical Science', description: 'Hands-on experimentation in our well-equipped laboratory' },
+  { id: 3, src: 'https://d1dc40k4xbphr.cloudfront.net/images/gallery/msi-learners.jpg', alt: 'STEM camp outdoor activity', title: 'STEM Activities', description: 'Hands-on learning experiences in STEM' },
+  { id: 4, src: 'https://d1dc40k4xbphr.cloudfront.net/images/gallery/msi-talks.jpg', alt: 'School outreach program', title: 'Educational Talks', description: 'Inspiring the next generation of STEM leaders' },
+  { id: 5, src: 'https://d1dc40k4xbphr.cloudfront.net/images/gallery/msi-classroom-1.jpg', alt: 'Group of students learning together', title: 'Collaborative Learning', description: 'Students working together to solve complex problems' },
+  { id: 6, src: 'https://d1dc40k4xbphr.cloudfront.net/images/gallery/msi-donations.jpg', alt: 'Community outreach program', title: 'Community Impact', description: 'Making a difference in our local communities' },
 ]
 
 const Gallery = () => {

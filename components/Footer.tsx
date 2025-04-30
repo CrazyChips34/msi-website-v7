@@ -57,7 +57,7 @@ const Footer = () => {
           {/* Logo and Description */}
           <motion.div variants={fadeInUp} className="space-y-4">
             <Image 
-              src="https://msi-resources-pages.s3.amazonaws.com/images/msi_logo.png" 
+              src="https://d1dc40k4xbphr.cloudfront.net/images/msi_logo.png" 
               alt="MSI Logo" 
               width={140} 
               height={70} 

@@ -26,7 +26,7 @@ export default function NotFound() {
           <div className="mb-12 flex justify-center">
 
               <Image 
-                src="https://msi-resources-pages.s3.amazonaws.com/images/404-Not-Found.jpg" 
+                src="https://d1dc40k4xbphr.cloudfront.net/images/404-Not-Found.jpg" 
                 alt="404 Not Found" 
                 width={300} 
                 height={300} 

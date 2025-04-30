@@ -40,7 +40,7 @@ export default function Home() {
       <section className="relative h-screen flex items-center justify-center bg-gradient-to-r from-red-600 to-red-800 text-white overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image
-            src="https://msi-resources-pages.s3.amazonaws.com/images/gallery/msi-hero.jpg"
+            src="https://d1dc40k4xbphr.cloudfront.net/images/gallery/msi-hero.jpg"
             alt="Students learning"
             layout="fill"
             objectFit="cover"
@@ -94,17 +94,17 @@ export default function Home() {
           {[
             { 
               title: 'Learner Development', 
-              icon: <Image src="https://msi-resources-pages.s3.amazonaws.com/images/icons/msi_student_icon.svg" alt="Learner Development" width={100} height={100} />, 
+              icon: <Image src="https://d1dc40k4xbphr.cloudfront.net/images/icons/msi_student_icon.svg" alt="Learner Development" width={100} height={100} />, 
               description: "Providing academic support, tutoring, and enrichment programs to enhance learners' performance in maths and science." 
             },
             { 
               title: 'Teacher Development', 
-              icon: <Image src="https://msi-resources-pages.s3.amazonaws.com/images/icons/msi_developing.svg" alt="Teacher Development" width={100} height={100} />, 
+              icon: <Image src="https://d1dc40k4xbphr.cloudfront.net/images/icons/msi_developing.svg" alt="Teacher Development" width={100} height={100} />, 
               description: 'Training and upskilling educators to improve teaching methodologies and subject mastery.' 
             },
             { 
               title: 'Career Guidance & Role Modelling', 
-              icon: <Image src="https://msi-resources-pages.s3.amazonaws.com/images/icons/msi_development_icon.svg" alt="Career Guidance" width={100} height={100} />, 
+              icon: <Image src="https://d1dc40k4xbphr.cloudfront.net/images/icons/msi_development_icon.svg" alt="Career Guidance" width={100} height={100} />, 
               description: ' Connecting learners with industry professionals to inspire and guide their career choices.' 
             },
 
