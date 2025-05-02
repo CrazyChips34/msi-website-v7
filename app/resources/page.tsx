@@ -181,17 +181,17 @@ export default function ResourcesPage() {
                   </div>
                   <ul className="space-y-2 pl-7">
                     <li className="list-disc text-gray-600">
-                      <Link href="/resources/past-papers/physical-science/grade-10" className="hover:text-red-600 transition-colors">
+                      <Link href="/resources/past-papers/physicalscience/grade-10" className="hover:text-red-600 transition-colors">
                         Grade 10
                       </Link>
                     </li>
                     <li className="list-disc text-gray-600">
-                      <Link href="/resources/past-papers/physical-science/grade-11" className="hover:text-red-600 transition-colors">
+                      <Link href="/resources/past-papers/physicalscience/grade-11" className="hover:text-red-600 transition-colors">
                         Grade 11
                       </Link>
                     </li>
                     <li className="list-disc text-gray-600">
-                      <Link href="/resources/past-papers/physical-science/grade-12" className="hover:text-red-600 transition-colors">
+                      <Link href="/resources/past-papers/physicalscience/grade-12" className="hover:text-red-600 transition-colors">
                         Grade 12
                       </Link>
                     </li>
@@ -254,17 +254,17 @@ export default function ResourcesPage() {
                   </div>
                   <ul className="space-y-2 pl-7">
                     <li className="list-disc text-gray-600">
-                      <Link href="/resources/videos/physical-science/grade-10" className="hover:text-red-600 transition-colors">
+                      <Link href="/resources/videos/physicalscience/grade-10" className="hover:text-red-600 transition-colors">
                         Grade 10
                       </Link>
                     </li>
                     <li className="list-disc text-gray-600">
-                      <Link href="/resources/videos/physical-science/grade-11" className="hover:text-red-600 transition-colors">
+                      <Link href="/resources/videos/physicalscience/grade-11" className="hover:text-red-600 transition-colors">
                         Grade 11
                       </Link>
                     </li>
                     <li className="list-disc text-gray-600">
-                      <Link href="/resources/videos/physical-science/grade-12" className="hover:text-red-600 transition-colors">
+                      <Link href="/resources/videos/physicalscience/grade-12" className="hover:text-red-600 transition-colors">
                         Grade 12
                       </Link>
                     </li>
@@ -314,7 +314,7 @@ export default function ResourcesPage() {
                         Maths Materials
                       </Link>
                       <Link
-                        href={`/resources/curriculum/physical-science/grade-${grade}`} 
+                        href={`/resources/curriculum/physicalscience/grade-${grade}`} 
                         className="inline-flex items-center justify-center px-3 py-1 bg-red-100 text-red-700 rounded-full text-sm hover:bg-red-200 transition-colors"
                       >
                         Physical Science

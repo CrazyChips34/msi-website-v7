@@ -19,8 +19,8 @@ import {
 import { guidelinesData } from '@/data/guidelinesData';
 
 // Constants for filter options
-const GRADES = ['7', '8', '9', '10', '11', '12'];
-const SUBJECTS = ['Maths', 'Science'];
+const GRADES = ['10', '11', '12'];
+const SUBJECTS = ['Maths', 'Physical Science'];
 
 export default function GuidelinesPage() {
   const [searchTerm, setSearchTerm] = useState('');
