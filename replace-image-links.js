@@ -1,34 +1,39 @@
 const fs = require('fs');
 const path = require('path');
 
-// Change these to your actual URLs
 const oldUrl = 'https://d1dc40k4xbphr.cloudfront.net';
 const newUrl = 'https://d1dc40k4xbphr.cloudfront.net';
 
-// File types to search through
-const fileExtensions = ['.tsx', '.ts', '.js', '.jsx'];
+const fileExtensions = ['.ts', '.tsx', '.js', '.jsx'];
 
 function replaceInFile(filePath) {
-  const content = fs.readFileSync(filePath, 'utf-8');
-  if (content.includes(oldUrl)) {
-    const updated = content.replaceAll(oldUrl, newUrl);
-    fs.writeFileSync(filePath, updated, 'utf-8');
-    console.log(`✔ Updated: ${filePath}`);
+  try {
+    const content = fs.readFileSync(filePath, 'utf-8');
+    if (content.includes(oldUrl)) {
+      const updated = content.split(oldUrl).join(newUrl);
+      fs.writeFileSync(filePath, updated, 'utf-8');
+      console.log(`✔ Updated: ${filePath}`);
+    }
+  } catch (err) {
+    console.error(`❌ Failed to read/replace in: ${filePath}\n`, err);
   }
 }
 
 function walkDir(dir) {
-  const files = fs.readdirSync(dir);
-  for (const file of files) {
-    const fullPath = path.join(dir, file);
-    const stats = fs.statSync(fullPath);
-    if (stats.isDirectory()) {
+  const entries = fs.readdirSync(dir, { withFileTypes: true });
+
+  for (const entry of entries) {
+    const fullPath = path.join(dir, entry.name);
+
+    if (entry.isDirectory()) {
+      // Skip node_modules to avoid unnecessary work
+      if (entry.name === 'node_modules') continue;
       walkDir(fullPath);
-    } else if (fileExtensions.includes(path.extname(fullPath))) {
+    } else if (fileExtensions.includes(path.extname(entry.name))) {
       replaceInFile(fullPath);
     }
   }
 }
 
-// Start from the current directory
-walkDir('./');
+// Start from project root (current folder)
+walkDir(process.cwd());

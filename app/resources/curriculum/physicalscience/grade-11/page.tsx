@@ -45,11 +45,11 @@ const getFilteredMaterials = () => {
   
   // Filter materials
   const filteredMaterials = allCurriculumMaterials.filter(material => {
-    const materialPath = material.url.toUpperCase();
-    const matchesGrade = materialPath.includes(gradeStr) || materialPath.includes(altGradeStr);
-    const matchesSubject = materialPath.includes(subjectPath);
-    return matchesGrade && matchesSubject;
-  });
+     const decodedPath = decodeURIComponent(material.url).toLowerCase();
+     const matchesGrade = decodedPath.includes(`grade ${GRADE}`) || decodedPath.includes(`gr${GRADE}`);
+     const matchesSubject = decodedPath.includes('physical science');
+     return matchesGrade && matchesSubject;
+   });
   
   console.log(`Found ${filteredMaterials.length} matching materials for Grade ${GRADE} Physical Science`);
   return filteredMaterials;

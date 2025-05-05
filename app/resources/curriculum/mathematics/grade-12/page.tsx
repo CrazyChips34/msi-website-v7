@@ -41,9 +41,8 @@ const getFilteredMaterials = () => {
   
   // Filter materials
   const filteredMaterials = allCurriculumMaterials.filter(material => {
-    return material.subject === 'MATHS' && material.grade === `GRADE ${GRADE}`;
+      return material.subject === 'MATHS' && material.grade === `GRADE ${GRADE}`;
   });
-  
   console.log(`Found ${filteredMaterials.length} matching materials for Grade ${GRADE} Mathematics`);
   return filteredMaterials;
 };

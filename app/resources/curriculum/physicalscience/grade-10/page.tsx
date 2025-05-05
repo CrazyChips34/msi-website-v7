@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, Suspense } from 'react'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
@@ -44,11 +44,13 @@ const getFilteredMaterials = () => {
   const altGradeStr = `GR${GRADE}`;
   const subjectPath = 'PHYSICAL SCIENCE';
   
+  
   // Filter materials
   const filteredMaterials = allCurriculumMaterials.filter(material => {
-    const materialPath = material.url.toUpperCase();
-    const matchesGrade = materialPath.includes(gradeStr) || materialPath.includes(altGradeStr);
-    const matchesSubject = materialPath.includes(subjectPath);
+    const decodedPath = decodeURIComponent(material.url).toLowerCase();
+    const matchesGrade = decodedPath.includes(`grade ${GRADE}`) || decodedPath.includes(`gr${GRADE}`);
+    const matchesSubject = decodedPath.includes('physical science');
+  
     return matchesGrade && matchesSubject;
   });
   
@@ -102,7 +104,8 @@ const organizeMaterialsByType = (materials: any[]) => {
   return content;
 };
 
-export default function Grade10PhysicalSciencePage() {
+// This component uses the search params and is wrapped in Suspense
+function CurriculumContent() {
   const searchParams = useSearchParams();
   const router = useRouter();
   
@@ -152,6 +155,89 @@ export default function Grade10PhysicalSciencePage() {
   };
   
   return (
+    <>
+      {/* Search */}
+      <div className="mb-8">
+        <div className="relative max-w-md">
+          <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+          <input
+            type="text"
+            placeholder="Search content..."
+            className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500"
+            onChange={(e) => setSearchTerm(e.target.value)}
+          />
+        </div>
+      </div>
+
+      {/* Folder Navigation */}
+      <div className="flex flex-wrap gap-4 mb-8">
+        {FOLDER_TYPES.map((folder) => (
+          <button
+            key={folder}
+            onClick={() => navigateToFolder(folder)}
+            className={`px-4 py-2 rounded-lg transition-colors ${
+              activeFolder === folder
+                ? 'bg-red-600 text-white'
+                : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+            }`}
+          >
+            {formatTitle(folder)}
+          </button>
+        ))}
+      </div>
+
+      {/* Content Grid */}
+      <motion.div
+        key={`physicalscience-${GRADE}-${activeFolder}`}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        className="bg-white rounded-lg shadow-md p-6"
+      >
+        <h2 className="text-xl font-semibold mb-6 text-gray-800">
+          {formatTitle(activeFolder as string)}
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          {curriculumData[activeFolder as string]?.length > 0 ? (
+            curriculumData[activeFolder as string]
+              .filter(file => 
+                file.name.toLowerCase().includes(searchTerm.toLowerCase())
+              )
+              .map((file, index) => (
+                <motion.div
+                  key={index}
+                  whileHover={{ scale: 1.02 }}
+                  className="p-4 border border-gray-200 rounded-lg hover:border-red-500 transition-colors"
+                >
+                  <div className="flex items-start justify-between">
+                    <div className="flex items-center space-x-3">
+                      <FileText className="w-6 h-6 text-red-600" />
+                      <span className="text-gray-700">{file.name}</span>
+                    </div>
+                    <a
+                      href={file.path}
+                      download
+                      className="p-2 text-red-600 hover:text-red-800 transition-colors"
+                    >
+                      <Download className="w-5 h-5" />
+                    </a>
+                  </div>
+                </motion.div>
+              ))
+          ) : (
+            <div className="col-span-3 text-center py-8 text-gray-500">
+              <Book className="w-12 h-12 mx-auto mb-4 text-gray-400" />
+              <p>No {activeFolder} available for Grade {GRADE} Physical Science yet.</p>
+              <p className="mt-2 text-sm">Check back later or try another category.</p>
+            </div>
+          )}
+        </div>
+      </motion.div>
+    </>
+  );
+}
+
+export default function Grade10PhysicalSciencePage() {
+  return (
     <div className="min-h-screen bg-gray-50">
       <Header />
       
@@ -181,86 +267,14 @@ export default function Grade10PhysicalSciencePage() {
             </div>
           </motion.div>
 
-          {/* Search */}
-          <div className="mb-8">
-            <div className="relative max-w-md">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
-              <input
-                type="text"
-                placeholder="Search content..."
-                className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500"
-                onChange={(e) => setSearchTerm(e.target.value)}
-              />
-            </div>
-          </div>
-
-          {/* Folder Navigation */}
-          <div className="flex flex-wrap gap-4 mb-8">
-            {FOLDER_TYPES.map((folder) => (
-              <button
-                key={folder}
-                onClick={() => navigateToFolder(folder)}
-                className={`px-4 py-2 rounded-lg transition-colors ${
-                  activeFolder === folder
-                    ? 'bg-red-600 text-white'
-                    : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
-                }`}
-              >
-                {formatTitle(folder)}
-              </button>
-            ))}
-          </div>
-
-          {/* Content Grid */}
-          <motion.div
-            key={`physicalscience-${GRADE}-${activeFolder}`}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            className="bg-white rounded-lg shadow-md p-6"
-          >
-            <h2 className="text-xl font-semibold mb-6 text-gray-800">
-              {formatTitle(activeFolder as string)}
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-              {curriculumData[activeFolder as string]?.length > 0 ? (
-                curriculumData[activeFolder as string]
-                  .filter(file => 
-                    file.name.toLowerCase().includes(searchTerm.toLowerCase())
-                  )
-                  .map((file, index) => (
-                    <motion.div
-                      key={index}
-                      whileHover={{ scale: 1.02 }}
-                      className="p-4 border border-gray-200 rounded-lg hover:border-red-500 transition-colors"
-                    >
-                      <div className="flex items-start justify-between">
-                        <div className="flex items-center space-x-3">
-                          <FileText className="w-6 h-6 text-red-600" />
-                          <span className="text-gray-700">{file.name}</span>
-                        </div>
-                        <a
-                          href={file.path}
-                          download
-                          className="p-2 text-red-600 hover:text-red-800 transition-colors"
-                        >
-                          <Download className="w-5 h-5" />
-                        </a>
-                      </div>
-                    </motion.div>
-                  ))
-              ) : (
-                <div className="col-span-3 text-center py-8 text-gray-500">
-                  <Book className="w-12 h-12 mx-auto mb-4 text-gray-400" />
-                  <p>No {activeFolder} available for Grade {GRADE} Physical Science yet.</p>
-                  <p className="mt-2 text-sm">Check back later or try another category.</p>
-                </div>
-              )}
-            </div>
-          </motion.div>
+          {/* Wrap the component that uses useSearchParams in Suspense */}
+          <Suspense fallback={<div className="flex justify-center p-8">Loading curriculum materials...</div>}>
+            <CurriculumContent />
+          </Suspense>
         </div>
       </main>
 
       <Footer />
     </div>
   )
-} 
+}
