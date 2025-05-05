@@ -6,17 +6,14 @@ import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
-import { allCurriculumMaterials  } from '@/data/curriculum-materials';
+import { allCurriculumMaterials } from '@/data/curriculum-materials'
 import { 
-  Folder,
   FileText,
   Download,
   ChevronLeft,
   Search,
-  Book,
-  ChevronRight
+  Book
 } from 'lucide-react'
-import { useSearchParams } from 'next/navigation'
 
 // Constants for folder types
 const FOLDER_TYPES = ['topics', 'study-guides', 'notes', 'assessments'] as const
@@ -39,9 +36,17 @@ const SUBJECT = 'physicalscience';
 const getFilteredMaterials = () => {
   console.log(`Filtering materials for Physical Science Grade ${GRADE}`);
   
+  // Convert search parameters
+  const gradeStr = `GRADE ${GRADE}`;
+  const altGradeStr = `GR${GRADE}`;
+  const subjectPath = 'PHYSICAL SCIENCE';
+  
   // Filter materials
   const filteredMaterials = allCurriculumMaterials.filter(material => {
-    return material.subject === 'PHYSICAL SCIENCE' && material.grade === `GRADE ${GRADE}`;
+    const materialPath = material.url.toUpperCase();
+    const matchesGrade = materialPath.includes(gradeStr) || materialPath.includes(altGradeStr);
+    const matchesSubject = materialPath.includes(subjectPath);
+    return matchesGrade && matchesSubject;
   });
   
   console.log(`Found ${filteredMaterials.length} matching materials for Grade ${GRADE} Physical Science`);
@@ -61,7 +66,7 @@ const organizeMaterialsByType = (materials: any[]) => {
   materials.forEach(material => {
     // Create curriculum file object
     const file = {
-      name: material.filename?.replace('.pdf', '').replace('.docx', '') ?? 'Untitled',
+      name: material.filename.replace('.pdf', '').replace('.docx', ''),
       path: material.url
     };
     
@@ -95,33 +100,13 @@ const organizeMaterialsByType = (materials: any[]) => {
 };
 
 export default function Grade12PhysicalSciencePage() {
-  const searchParams = useSearchParams();
   const router = useRouter();
   
-  // Get folder param from query string
-  const folderParam = searchParams.get('folder');
-  
   // State for UI
-  const [activeFolder, setActiveFolder] = useState(
-    FOLDER_TYPES.includes(folderParam as any) ? folderParam : 'topics'
-  );
+  const [activeFolder, setActiveFolder] = useState<string>('topics');
   const [searchTerm, setSearchTerm] = useState('');
   const [curriculumData, setCurriculumData] = useState<GradeContent>({});
-  
-  // On mount and when parameters change, fetch data
-  useEffect(() => {
-    const fetchData = () => {
-      const filteredMaterials = getFilteredMaterials();
-      const organizedContent = organizeMaterialsByType(filteredMaterials);
-      setCurriculumData(organizedContent);
-    };
-  
-    fetchData();
-  
-    if (folderParam && FOLDER_TYPES.includes(folderParam as any)) {
-      setActiveFolder(folderParam);
-    }
-  }, [folderParam]);
+  const [isLoading, setIsLoading] = useState(true);
   
   // Format title for display
   const formatTitle = (text: string) => {
@@ -134,8 +119,114 @@ export default function Grade12PhysicalSciencePage() {
   // Navigate to a different folder
   const navigateToFolder = (folder: string) => {
     setActiveFolder(folder);
-    router.push(`/resources/curriculum/physicalscience/grade-${GRADE}?folder=${folder}`);
+    router.push(`/resources/curriculum/physicalscience/grade-${GRADE}?folder=${folder}`, { scroll: false });
   };
+  
+  // Handle search input change
+  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchTerm(e.target.value);
+  };
+  
+  // Initialize data and handle URL parameters
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        setIsLoading(true);
+        
+        // Get folder from URL if available
+        const urlParams = new URLSearchParams(window.location.search);
+        const folderParam = urlParams.get('folder');
+        
+        if (folderParam && FOLDER_TYPES.includes(folderParam as any)) {
+          setActiveFolder(folderParam);
+        }
+        
+        // Get materials filtered by grade and subject
+        const filteredMaterials = getFilteredMaterials();
+        
+        // Organize materials by folder type
+        const organizedContent = organizeMaterialsByType(filteredMaterials);
+        
+        // Update state
+        setCurriculumData(organizedContent);
+      } catch (error) {
+        console.error('Error fetching curriculum data:', error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+    
+    fetchData();
+    
+    // Listen for URL changes (like back/forward navigation)
+    const handleUrlChange = () => {
+      const params = new URLSearchParams(window.location.search);
+      const folder = params.get('folder');
+      
+      if (folder && FOLDER_TYPES.includes(folder as any)) {
+        setActiveFolder(folder);
+      }
+    };
+    
+    window.addEventListener('popstate', handleUrlChange);
+    
+    return () => {
+      window.removeEventListener('popstate', handleUrlChange);
+    };
+  }, []);
+  
+  // Render loading state
+  if (isLoading) {
+    return (
+      <div className="min-h-screen bg-gray-50">
+        <Header />
+        
+        <main className="pt-24 pb-16">
+          <div className="container mx-auto px-4">
+            <div className="mb-8">
+              <Link 
+                href="/resources/curriculum"
+                className="inline-flex items-center text-gray-600 hover:text-red-600"
+              >
+                <ChevronLeft className="w-4 h-4 mr-2" />
+                Back to Curriculum
+              </Link>
+            </div>
+            
+            <div className="mb-8">
+              <h1 className="text-3xl font-bold text-navy-blue mb-4">
+                Grade {GRADE} Physical Science
+              </h1>
+            </div>
+            
+            <div className="animate-pulse">
+              <div className="h-10 bg-gray-200 rounded max-w-md mb-8"></div>
+              <div className="flex gap-2 mb-8">
+                {[...Array(4)].map((_, i) => (
+                  <div key={i} className="h-10 w-24 bg-gray-200 rounded"></div>
+                ))}
+              </div>
+              <div className="bg-white rounded-lg shadow-md p-6">
+                <div className="h-6 bg-gray-200 rounded w-1/4 mb-8"></div>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                  {[...Array(6)].map((_, i) => (
+                    <div key={i} className="p-4 border border-gray-200 rounded-lg">
+                      <div className="flex items-center space-x-3">
+                        <div className="w-6 h-6 bg-gray-200 rounded"></div>
+                        <div className="h-4 bg-gray-200 rounded w-3/4"></div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+        
+        <Footer />
+      </div>
+    );
+  }
   
   return (
     <div className="min-h-screen bg-gray-50">
@@ -175,7 +266,8 @@ export default function Grade12PhysicalSciencePage() {
                 type="text"
                 placeholder="Search content..."
                 className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500"
-                onChange={(e) => setSearchTerm(e.target.value)}
+                onChange={handleSearchChange}
+                value={searchTerm}
               />
             </div>
           </div>
@@ -205,11 +297,11 @@ export default function Grade12PhysicalSciencePage() {
             className="bg-white rounded-lg shadow-md p-6"
           >
             <h2 className="text-xl font-semibold mb-6 text-gray-800">
-              {formatTitle(activeFolder as string)}
+              {formatTitle(activeFolder)}
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-              {curriculumData[activeFolder as string]?.length > 0 ? (
-                curriculumData[activeFolder as string]
+              {curriculumData[activeFolder]?.length > 0 ? (
+                curriculumData[activeFolder]
                   .filter(file => 
                     file.name.toLowerCase().includes(searchTerm.toLowerCase())
                   )
@@ -249,4 +341,4 @@ export default function Grade12PhysicalSciencePage() {
       <Footer />
     </div>
   )
-} 
+}
