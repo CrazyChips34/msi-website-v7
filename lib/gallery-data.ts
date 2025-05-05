@@ -58,14 +58,6 @@ export const galleryImages: GalleryImage[] = [
           description: 'Students engaged in STEM activities during holiday camp',
         },
         {
-          id: 5,
-          src: 'https://d1dc40k4xbphr.cloudfront.net/images/gallery/msi-applicant.jpg',
-          alt: 'Students studying together',
-          category: 'classes',
-          title: 'Group Study Session',
-          description: 'Peer learning and collaboration in action',
-        },
-        {
           id: 6,
           src: 'https://d1dc40k4xbphr.cloudfront.net/images/gallery/msi-talks.jpg',
           alt: 'Educational presentation',
@@ -307,7 +299,7 @@ export const galleryImages: GalleryImage[] = [
         },
         {
           id: 36,
-          src: 'https://d1dc40k4xbphr.cloudfront.net/images/gallery/msi-learner-development.jpg',
+          src: 'https://d1dc40k4xbphr.cloudfront.net/images/gallery/msi-learner-development.JPG',
           alt: 'Learner Development',
           category: 'classes',
           title: 'Learner Development',

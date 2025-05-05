@@ -108,17 +108,17 @@ export default function ResourcesPage() {
                   </div>
                   <ul className="space-y-2 pl-7">
                     <li className="list-disc text-gray-600">
-                      <Link href="/resources/curriculum/physical-science/grade-10" className="hover:text-red-600 transition-colors">
+                      <Link href="/resources/curriculum/physicalscience/grade-10" className="hover:text-red-600 transition-colors">
                         Grade 10
                       </Link>
                     </li>
                     <li className="list-disc text-gray-600">
-                      <Link href="/resources/curriculum/physical-science/grade-11" className="hover:text-red-600 transition-colors">
+                      <Link href="/resources/curriculum/physicalscience/grade-11" className="hover:text-red-600 transition-colors">
                         Grade 11
                       </Link>
                     </li>
                     <li className="list-disc text-gray-600">
-                      <Link href="/resources/curriculum/physical-science/grade-12" className="hover:text-red-600 transition-colors">
+                      <Link href="/resources/curriculum/physicalscience/grade-12" className="hover:text-red-600 transition-colors">
                         Grade 12
                       </Link>
                     </li>
